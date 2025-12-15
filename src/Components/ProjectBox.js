@@ -1,52 +1,82 @@
-import React from 'react';
-import {FaGithub} from "react-icons/fa";
-import {CgFileDocument} from "react-icons/cg";
+import React from "react";
+import { FaGithub } from "react-icons/fa";
+import { CgFileDocument } from "react-icons/cg";
+import { motion } from "framer-motion";
 
-
-const  ProjectBox = ({projectPhoto, projectName}) => {
+const ProjectBox = ({ projectPhoto, projectName }) => {
   const desc = {
-    TindogDesc : "This website is a landing page of Tinder but for dogs. It is a responsive website which was made to understand Bootstrap. I also learned how to host my project on Github and then how to deploy that project using Github pages.",
-    TindogGithub : "https://github.com/DevanshSahni/tindog",
-    TindogWebsite : "https://devanshsahni.github.io/tindog/",
+    TindogDesc:
+      "This website is a landing page of Tinder but for dogs. Made to understand Bootstrap and Github Pages hosting.",
+    TindogGithub: "https://github.com/DevanshSahni/tindog",
+    TindogWebsite: "https://devanshsahni.github.io/tindog/",
 
-    RogFreeDesc : "A website that shows you over seven specialized yoga postures for specific diseases or health problems. This was a group project made in a team of two for a 36-hour-long online hackathon named Hackodisha 2.0.",
-    RogFreeGithub : "https://github.com/DevanshSahni/Rog-Free",
-    RogFreeWebsite : "https://devanshsahni.github.io/Rog-Free/",
+    RogFreeDesc:
+      "A yoga posture recommendation site built during Hackodisha 2.0. Shows poses for specific health issues.",
+    RogFreeGithub: "https://github.com/DevanshSahni/Rog-Free",
+    RogFreeWebsite: "https://devanshsahni.github.io/Rog-Free/",
 
-    NewsletterDesc:"A newsletter signup site made using Mailchimp API where the signups can be monitored from the MailChimp account. This project was made to understand API integration, environment variables and vercel deployment.",
-    NewsletterGithub:"",
-    NewsletterWebsite:"https://newsletter-signup-teal.vercel.app/",
-    
-    WigglesDesc:"An innovative pet management web app enabling pet parents to create unique pet IDs, securely store and share vaccination records, and generate QR codes for pet profiles, enhancing safety.",
-    WigglesGithub:"https://github.com/DevanshSahni/Wiggles",
-    WigglesWebsite:"https://wiggles.vercel.app/",
-  }
+    NewsletterDesc:
+      "A newsletter signup app using Mailchimp API, environment variables, and Vercel deployment.",
+    NewsletterGithub: "",
+    NewsletterWebsite: "https://newsletter-signup-teal.vercel.app/",
 
-  let show ='';
-  if(desc[projectName + 'Github']===""){
-    show="none";
-  }
-    
+    WigglesDesc:
+      "A pet management app where users can generate a pet ID, store vaccination records and share custom QR profiles.",
+    WigglesGithub: "https://github.com/DevanshSahni/Wiggles",
+    WigglesWebsite: "https://wiggles.vercel.app/",
+  };
+
+  const hideGithub = desc[projectName + "Github"] === "";
+
   return (
-    <div className='projectBox'> 
-        <img className='projectPhoto' src={projectPhoto} alt="Project display" /> 
-        <div>
-            <br />
-            <h3>{projectName}</h3>
-            <br />
-            {desc[projectName + 'Desc']}
-            <br />
+    <motion.div
+      whileHover={{ scale: 1.05, boxShadow: "0px 8px 20px rgba(0,0,0,0.15)" }}
+      transition={{ type: "spring", stiffness: 200, damping: 18 }}
+      className="w-full max-w-sm bg-white border border-indigo-300 
+                 rounded-2xl p-6 flex flex-col text-center 
+                 hover:shadow-xl transition"
+    >
+      {/* IMAGE */}
+      <img
+        src={projectPhoto}
+        alt={projectName}
+        className="w-full rounded-lg mb-6"
+      />
 
-            <a style={{display:show}} href={desc[projectName + 'Github']} target='_blank'>
-              <button className='projectbtn'><FaGithub/> Github</button>
-            </a>
+      {/* NAME */}
+      <h3 className="text-2xl font-bold text-indigo-700 mb-3">{projectName}</h3>
 
-            <a href={desc[projectName + 'Website']} target='_blank'>
-              <button className='projectbtn'><CgFileDocument/> Demo</button>
-            </a>
-        </div>
-    </div>
-  )
-}
+      {/* DESC */}
+      <p className="text-gray-700 leading-relaxed mb-6">
+        {desc[projectName + "Desc"]}
+      </p>
 
-export default  ProjectBox
+      {/* BUTTONS */}
+      <div className="flex items-center justify-center gap-4">
+        {!hideGithub && (
+          <a
+            className="flex items-center gap-2 bg-indigo-700 text-white 
+                       px-4 py-2 rounded-lg hover:bg-indigo-800 
+                       transition text-lg"
+            href={desc[projectName + "Github"]}
+            target="_blank"
+          >
+            <FaGithub /> Github
+          </a>
+        )}
+
+        <a
+          className="flex items-center gap-2 bg-indigo-600 text-white 
+                     px-4 py-2 rounded-lg hover:bg-indigo-700 
+                     transition text-lg"
+          href={desc[projectName + "Website"]}
+          target="_blank"
+        >
+          <CgFileDocument /> Demo
+        </a>
+      </div>
+    </motion.div>
+  );
+};
+
+export default ProjectBox;

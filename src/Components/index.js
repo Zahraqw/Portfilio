@@ -1,0 +1,6 @@
+export { default as Footer } from "./Footer";
+export { default as MoveToTop } from "./MoveToTop";
+export { default as Navbar } from "./Navbar";
+export { default as Skills } from "./Skills";
+export { default as Typed } from "./Typed";
+export { default as ProjectBox } from "./ProjectBox";

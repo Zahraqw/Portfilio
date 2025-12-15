@@ -1,60 +1,48 @@
 import { Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Nav from './Components/Navbar';
-import Footer from "./Components/Footer";
-import Home from "./Components/Home";
-import About from "./Components/About";
-import Resume from "./Components/Resume";
-import Project from "./Components/Projects";
-import MoveToTop from "./Components/MoveToTop";
-import Lottie from  "lottie-react";
-import nightsky from "./LottieFiles/night-sky.json";
-import HashLoader from "react-spinners/HashLoader";
-
+import React, { useEffect, useState } from "react";
+import { Navbar, Footer, MoveToTop } from "components";
+import { Home, About, Resume, Projects } from "./pages/index.js";
+import { Helmet } from "react-helmet";
+import Loader from "./components/Loader";
 
 function App() {
-  const[Loading,SetLoading]=useState(true);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(()=>{
-    SetLoading(true)
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 1900);
+    return () => clearTimeout(timer);
+  }, []);
 
-    setTimeout(()=>{
-    SetLoading(false)}
-    ,1900)
-  },[])  
-  
   return (
     <>
-      {Loading ? (
-      <div className="loader"> 
-        <HashLoader
-          color={'#9067C6'}
-          loading={true}
-          size={100}
-          aria-label="Loading Spinner"
-          data-testid="loader"
+      <Helmet>
+        <title>Zahraa Qawariq</title>
+        <meta
+          name="description"
+          content="Portfolio of Zahraa Qawariq, Frontend Developer."
         />
-      </div>
-      ):(
-      <div>
-      
-      <Lottie className="bg" animationData={nightsky} loop={true} />  
-      <Lottie className="bgtwo" animationData={nightsky} loop={true} />   
-      <Lottie className="bgtemp" animationData={nightsky} loop={true} /> 
+      </Helmet>
 
-      <Nav/>
-      <MoveToTop/>
+      {loading ? (
+        <Loader duration={1900} />
+      ) : (
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <MoveToTop />
 
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/About" element={<About/>}/>
-        <Route path="/Project" element={<Project/>}/>
-        <Route path="/Resume" element={<Resume/>}/>
-      </Routes>
-      
-      <Footer/>
-      </div>
-      )}  
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/About" element={<About />} />
+              <Route path="/Project" element={<Projects />} />
+              <Route path="/Resume" element={<Resume />} />
+            </Routes>
+          </main>
+
+          <Footer />
+        </div>
+      )}
     </>
   );
 }

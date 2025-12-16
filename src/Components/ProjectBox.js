@@ -1,81 +1,70 @@
-import React from "react";
-import { FaGithub } from "react-icons/fa";
-import { CgFileDocument } from "react-icons/cg";
-import { motion } from "framer-motion";
+import { PROJECTS } from "constants/string";
+import { FiGithub, FiExternalLink } from "react-icons/fi";
+import STRINGS from "constants/string.js";
 
 const ProjectBox = ({ projectPhoto, projectName }) => {
-  const desc = {
-    TindogDesc:
-      "This website is a landing page of Tinder but for dogs. Made to understand Bootstrap and Github Pages hosting.",
-    TindogGithub: "https://github.com/DevanshSahni/tindog",
-    TindogWebsite: "https://devanshsahni.github.io/tindog/",
+  const project = PROJECTS[projectName];
 
-    RogFreeDesc:
-      "A yoga posture recommendation site built during Hackodisha 2.0. Shows poses for specific health issues.",
-    RogFreeGithub: "https://github.com/DevanshSahni/Rog-Free",
-    RogFreeWebsite: "https://devanshsahni.github.io/Rog-Free/",
+  if (!project) return null;
 
-    NewsletterDesc:
-      "A newsletter signup app using Mailchimp API, environment variables, and Vercel deployment.",
-    NewsletterGithub: "",
-    NewsletterWebsite: "https://newsletter-signup-teal.vercel.app/",
-
-    WigglesDesc:
-      "A pet management app where users can generate a pet ID, store vaccination records and share custom QR profiles.",
-    WigglesGithub: "https://github.com/DevanshSahni/Wiggles",
-    WigglesWebsite: "https://wiggles.vercel.app/",
-  };
-
-  const hideGithub = desc[projectName + "Github"] === "";
+  const hideGithub = !project.github;
+  const hideDemo = !project.website;
 
   return (
-    <motion.div
-      whileHover={{ scale: 1.05, boxShadow: "0px 8px 20px rgba(0,0,0,0.15)" }}
-      transition={{ type: "spring", stiffness: 200, damping: 18 }}
-      className="w-full max-w-sm bg-white border border-indigo-300 
-                 rounded-2xl p-6 flex flex-col text-center 
-                 hover:shadow-xl transition"
-    >
-      {/* IMAGE */}
+    <div className="rounded-3xl bg-white/80 backdrop-blur-xl shadow-xl p-6 hover:shadow-2xl transition">
       <img
         src={projectPhoto}
-        alt={projectName}
-        className="w-full rounded-lg mb-6"
+        alt={project.title}
+        className="rounded-2xl mb-5 w-full object-cover"
       />
 
-      {/* NAME */}
-      <h3 className="text-2xl font-bold text-indigo-700 mb-3">{projectName}</h3>
+      <h3 className="text-xl font-bold text-indigo-700">{project.title}</h3>
 
-      {/* DESC */}
-      <p className="text-gray-700 leading-relaxed mb-6">
-        {desc[projectName + "Desc"]}
+      <p className="mt-2 text-gray-600 text-sm leading-relaxed">
+        {project.description}
       </p>
 
-      {/* BUTTONS */}
-      <div className="flex items-center justify-center gap-4">
+      <div className="flex flex-wrap gap-2 mt-4">
+        {project.tech.map((tech) => (
+          <span
+            key={tech}
+            className="text-xs px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 font-medium"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <div className="flex gap-4 mt-6">
         {!hideGithub && (
           <a
-            className="flex items-center gap-2 bg-indigo-700 text-white 
-                       px-4 py-2 rounded-lg hover:bg-indigo-800 
-                       transition text-lg"
-            href={desc[projectName + "Github"]}
+            href={project.github}
             target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl
+        bg-indigo-500 text-white text-sm font-medium
+        hover:bg-indigo-300 hover:scale-105
+        transition-all duration-200 cursor-pointer shadow-lg"
           >
-            <FaGithub /> Github
+            <FiGithub /> {STRINGS.github}
           </a>
         )}
 
-        <a
-          className="flex items-center gap-2 bg-indigo-600 text-white 
-                     px-4 py-2 rounded-lg hover:bg-indigo-700 
-                     transition text-lg"
-          href={desc[projectName + "Website"]}
-          target="_blank"
-        >
-          <CgFileDocument /> Demo
-        </a>
+        {hideDemo && (
+          <a
+            href={project.website}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl
+        bg-indigo-500 text-white text-sm font-medium
+        hover:bg-indigo-300 hover:scale-105
+        transition-all duration-200 cursor-pointer shadow-lg"
+          >
+            <FiExternalLink /> {STRINGS.liveDemo}
+          </a>
+        )}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -26,6 +26,7 @@ export default {
   PROJECTS: "Projects",
   github: "GitHub",
   liveDemo: "Live Demo",
+  downloadCV: "Download CV",
 };
 
 export const PROJECTS = {

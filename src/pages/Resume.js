@@ -4,6 +4,7 @@ import pdf from "../Resume.pdf";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
+import STRINGS from "constants/string.js";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
@@ -21,7 +22,6 @@ const Resume = () => {
       className="min-h-screen flex flex-col items-center px-6 md:px-20 pt-40 pb-20
                  bg-gradient-to-b from-indigo-50 to-white"
     >
-      {/* PDF Card */}
       <div
         className="
           pointer-events-none
@@ -42,8 +42,7 @@ const Resume = () => {
         </Document>
       </div>
 
-      {/* Download Button */}
-      <a href={pdf} target="_blank" download="Devansh_Resume" className="mt-8">
+      <a href={pdf} target="_blank" download="Zahraa_Resume" className="mt-8">
         <button
           type="button"
           className="
@@ -57,7 +56,7 @@ const Resume = () => {
             hover:bg-gray-100 hover:text-purple-800
           "
         >
-          <BsDownload className="text-2xl" /> Download CV
+          <BsDownload className="text-2xl" /> {STRINGS.downloadCV}
         </button>
       </a>
     </div>

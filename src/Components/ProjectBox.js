@@ -50,7 +50,7 @@ const ProjectBox = ({ projectPhoto, projectName }) => {
           </a>
         )}
 
-        {hideDemo && (
+        {!hideDemo && (
           <a
             href={project.website}
             target="_blank"

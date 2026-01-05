@@ -71,7 +71,7 @@ const Nav = () => {
             active={location.pathname === "/About"}
           />
           <NavItem
-            to="/Project"
+            to="/Projects"
             icon={<BsCodeSlash />}
             text="Projects"
             active={location.pathname === "/Project"}

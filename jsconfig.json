@@ -5,8 +5,7 @@
       "assets/*": ["assets/*"],
       "components/*": ["components/*"],
       "pages/*": ["pages/*"]
-    },
-    "types": ["react", "react-dom"]
+    }
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

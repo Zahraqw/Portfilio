@@ -42,7 +42,13 @@ const Resume = () => {
         </Document>
       </div>
 
-      <a href={pdf} target="_blank" download="Zahraa_Resume" className="mt-8">
+      <a
+        href={pdf}
+        target="_blank"
+        rel="noopener noreferrer"
+        download="Zahraa_Resume"
+        className="mt-8"
+      >
         <button
           type="button"
           className="

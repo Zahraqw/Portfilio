@@ -8,14 +8,7 @@ import STRINGS from "constants/string.js";
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
-  const [blur, setBlur] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => setBlur(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     setOpen(false);

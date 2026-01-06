@@ -1,4 +1,4 @@
-export default {
+const STRINGS = {
   MAIN_NAME: "Zahraa",
   FULL_NAME: "Zahraa Qawariq",
   DESCRIPTION: "Frontend Developer",
@@ -66,3 +66,5 @@ export const PROJECTS = {
     tech: ["React Native", "Mobile UI", "UX"],
   },
 };
+
+export default STRINGS;

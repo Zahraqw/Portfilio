@@ -1,7 +1,6 @@
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
-import { SiLeetcode } from "react-icons/si";
 import STRINGS from "constants/string.js";
 
 const Footer = () => {
@@ -21,6 +20,7 @@ const Footer = () => {
         <a
           href="https://github.com/Zahraqw"
           target="_blank"
+          rel="noopener noreferrer"
           className="hover:text-indigo-900 transition-colors"
         >
           <FaGithub />
@@ -28,6 +28,7 @@ const Footer = () => {
         <a
           href="https://www.linkedin.com/in/zahraa-qawariq-675bba212/"
           target="_blank"
+          rel="noopener noreferrer"
           className="hover:text-indigo-900 transition-colors"
         >
           <FaLinkedin />
@@ -35,6 +36,7 @@ const Footer = () => {
         <a
           href="mailto:zahradeeb98@gmail.com"
           target="_blank"
+          rel="noopener noreferrer"
           className="hover:text-indigo-900 transition-colors"
         >
           <GrMail />

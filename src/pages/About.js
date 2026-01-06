@@ -1,4 +1,4 @@
-import { Skills } from "components";
+import { Skills } from "components/index.js";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import PersonalAvatar from "../assets/images/myAvatar.jpg";

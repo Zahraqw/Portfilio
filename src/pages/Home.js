@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Typed } from "components";
-import PhotoAvatar from "components/PhotoAvatar";
+import { PhotoAvatar, Typed } from "components/index.js";
 import STRINGS from "constants/string.js";
 
 const Home = () => {

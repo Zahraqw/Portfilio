@@ -6,3 +6,5 @@ export { default as Typed } from "./Typed";
 export { default as ProjectBox } from "./ProjectBox";
 export { default as PhotoAvatar } from "./PhotoAvatar";
 export { default as Loader } from "./Loader";
+export { default as Skills } from "./Skills";
+export { default as Typed } from "./Typed";

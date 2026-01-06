@@ -1,9 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { Navbar, Footer, MoveToTop } from "components";
+import { Navbar, Footer, MoveToTop, Loader } from "components";
 import { Home, About, Resume, Projects } from "./pages/index.js";
 import { Helmet } from "react-helmet";
-import Loader from "./components/Loader";
 
 function App() {
   const [loading, setLoading] = useState(true);

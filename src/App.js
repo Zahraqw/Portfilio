@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { Navbar, Footer, MoveToTop, Loader } from "components";
+import { Navbar, Footer, MoveToTop, Loader } from "./components/index.js";
 import { Home, About, Resume, Projects } from "./pages/index.js";
 import { Helmet } from "react-helmet";
 

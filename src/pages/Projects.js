@@ -22,6 +22,10 @@ const Projects = () => {
                       gap-10 place-items-center"
       >
         <ProjectBox
+          projectPhoto={Images.bloomal_dashboard}
+          projectName="BilingualInvestmentPlatform"
+        />
+        <ProjectBox
           projectPhoto={Images.Product_list}
           projectName="ProductList"
         />

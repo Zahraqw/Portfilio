@@ -30,12 +30,28 @@ const STRINGS = {
 };
 
 export const PROJECTS = {
+  BilingualInvestmentPlatform: {
+    title: "Blomal Capital Investment Platform ",
+    description:
+      "A responsive, bilingual investment platform built with React & Tailwind, featuring a complete retail-investor journey, custom glassmorphism UI, and robust state management.",
+    website:
+      "https://blomal-platform-frontend-rmyn-git-main-zahraa-qawariqs-projects.vercel.app/",
+    tech: [
+      "React",
+      "Tailwind CSS",
+      "Responsive Design",
+      "RTL Support",
+      "Zustand",
+    ],
+  },
+
   ProductList: {
     title: "Product List Dashboard",
     description:
       "A modern product listing interface with reusable components and a clean UI. Built to demonstrate scalable front-end architecture, responsive layouts, and real-world product rendering patterns.",
     github: "https://github.com/Zahraqw/Jobs",
-    website: "",
+    website:
+      "https://landingpage-git-main-zahraa-qawariqs-projects.vercel.app/",
     tech: ["React", "BootStrap", "Component Architecture"],
   },
 
@@ -44,7 +60,8 @@ export const PROJECTS = {
     description:
       "A polished sign-in screen with form validation, accessibility best practices, and smooth user experience. Designed to reflect real production authentication flows.",
     github: "https://github.com/Zahraqw/tasha-project",
-    website: "",
+    website:
+      "https://autontication-page-git-main-zahraa-qawariqs-projects.vercel.app/",
     tech: ["React", "Form Validation", "UX/UI"],
   },
 
@@ -53,7 +70,8 @@ export const PROJECTS = {
     description:
       "A user-friendly sign-up interface featuring validation, error handling, and clean visual hierarchy as part of a complete authentication system.",
     github: "https://github.com/Zahraqw/tasha-project",
-    website: "",
+    website:
+      "https://autontication-page-git-main-zahraa-qawariqs-projects.vercel.app/",
     tech: ["React", "Tailwind", "Best Practices"],
   },
 

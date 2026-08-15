@@ -5,6 +5,7 @@ const Images = {
   qurany_app: require("./images/QuranyMobileApp.png"),
   sign_in: require("./images/SignInImage.png"),
   sign_up: require("./images/SignUpImage.png"),
+  bloomal_dashboard: require("./images/bloomalDashboard.jpg"),
 };
 
 export default Images;
